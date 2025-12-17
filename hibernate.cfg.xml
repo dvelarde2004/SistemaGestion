@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- ========== CONEXIÓN A MYSQL ========== -->
+        <!-- Driver de MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <!-- URL: localhost:3306/facturacion -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/facturacion?useSSL=false&amp;serverTimezone=UTC</property>
+
+        <!-- Usuario (root o el que uses) -->
+        <property name="hibernate.connection.username">root</property>
+
+        <!-- CONTRASEÑA: PON LA TUYA AQUÍ -->
+        <property name="hibernate.connection.password">1234</property>
+
+        <!-- ========== CONFIGURACIÓN HIBERNATE ========== -->
+        <!-- Dialecto para MySQL 8 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Mostrar SQL en consola (útil para desarrollo) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Actualizar esquema automáticamente -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Pool de conexiones -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+
+        <!-- ========== ENTIDADES (clases mapeadas) ========== -->
+        <!-- Añade esta línea DESPUÉS de crear Cliente.java -->
+        <!-- <mapping class="com.tuempresa.facturacion.model.Cliente"/> -->
+    </session-factory>
+</hibernate-configuration>
